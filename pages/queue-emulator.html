@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div ClassName="container shadow-lg">
+        <div ClassName="display-1 text-center">Queue Emulator</div>
+        <label ClassName="h6 p-2 ">Input Values u want to push in Queue</label>
+        <br>
+
+        <input type="text" autofocus placeholder="Enter the Number" ClassName="form-control" id="input1">
+        <br>
+        <button ClassName="m-2 btn btn-outline-success" id="push">ADD</button>
+        <button ClassName="m-2 btn btn-outline-primary" id="pop">REMOVE</button>
+
+
+        <div ClassName="display-6 p-5" id="result">
+
+        </div>
+
+    </div>
+    <script>
+        function add() {
+            var input1 = document.getElementById('input1').value
+            document.getElementById('input1').value = ""
+
+            output.push(input1)
+
+            document.getElementById('result').innerText = output
+
+
+
+        }
+
+        function remove() {
+            output.shift()
+            document.getElementById('result').innerHTML = output
+
+        }
+
+        var output = []
+        document.getElementById('push').addEventListener('click', add)
+        document.getElementById('pop').addEventListener('click', remove)
+    </script>
+</body>
+
+
+</html>

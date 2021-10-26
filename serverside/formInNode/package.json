@@ -1,0 +1,11 @@
+{
+  "name": "forminnode",
+  "version": "1.0.0",
+  "description": "form-sending-data-to-nodeserver",
+  "main": "form-sendingdata-to-nodeserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paul",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "imageupload",
+  "version": "1.0.0",
+  "description": "uploading file\\image to server  by express-fileupload middleware & using Mongoose",
+  "main": "server2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server2.js",
+    "dev": "nodemon server2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Nileshwar-Paul-au17"
+  },
+  "author": "PAUL",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "install": "^0.13.0",
+    "mongoose": "^6.0.10"
+  }
+}
