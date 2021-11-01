@@ -1,0 +1,19 @@
+{
+  "name": "middleware_in_express_try",
+  "version": "1.0.0",
+  "description": "practicing middlewares in express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Nileshwar-Paul-au17"
+  },
+  "author": "Paul",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

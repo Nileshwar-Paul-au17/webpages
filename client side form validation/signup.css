@@ -1,0 +1,42 @@
+*{
+ box-sizing: border-box;   
+}
+.body{
+    background-color:white;
+}
+.container1{
+    width:50%;
+    height: 96vh;
+    margin-left:25%;
+    margin-right:25%;
+    margin-top:2vh;
+    margin-bottom:2vh;
+    background-color:white ;
+    border: violet solid 20px;
+    
+}
+.heading{
+    width: 100%;
+    height: 10%;
+    background-color: whitesmoke;
+    font-size: 1em;
+    font-weight:bold;
+}
+.heading-label{
+    margin:5% 5% 5% 5%;
+}
+form{
+    padding: 5%;
+}
+.form-label{
+    margin-top:3%   
+}
+button{
+    background-color: violet !important;
+    margin-top: 5% !important;
+}
+
+
+input[data-state="invalid"] {
+    border-color: hsl(0, 76%, 50%);;
+  }
