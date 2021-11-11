@@ -66,7 +66,7 @@ app.post('/signup' , async (req, res) => {
         //save the data of the form in database
 
         const insertdata = await UserModel.create(data)
-
+        
         //move the uploaded image in our path
 
         filedata.mv(filepath)
