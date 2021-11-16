@@ -13,8 +13,7 @@ function check(){
     let emailmsg =document.getElementById('emailmsg')
    
    
-    let pattern =/@+/
-    let pattern2=/.com$/i
+    let pattern =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 
     
 
@@ -28,7 +27,7 @@ function check(){
     }
 
     if(email.value){
-        if(pattern.test(email.value)  & pattern2.test(email.value))
+        if(pattern.test(email.value))
         {
             email.style.border="2px solid green"
         }
