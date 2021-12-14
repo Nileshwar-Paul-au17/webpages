@@ -1,0 +1,25 @@
+{
+  "name": "filesysinnodejs",
+  "version": "1.0.0",
+  "description": "functionality of Files in Nodejs",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nileshwar-Paul-au17/webpages.git"
+  },
+  "author": "Paul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nileshwar-Paul-au17/webpages/issues"
+  },
+  "homepage": "https://github.com/Nileshwar-Paul-au17/webpages#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "gitignore": "^0.7.0",
+    "node": "^17.2.0"
+  }
+}
