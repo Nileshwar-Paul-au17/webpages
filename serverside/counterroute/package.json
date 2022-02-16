@@ -1,0 +1,24 @@
+{
+  "name": "increase_counter",
+  "version": "1.0.0",
+  "description": "Every time someone visits the root route in the browser, you need to increase the",
+  "main": "index.js",
+  "dependencies": {
+    "corepack": "^0.10.0",
+    "npm": "^8.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "run index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/Nileshwar-Paul-au26.git"
+  },
+  "author": "PAUL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/Nileshwar-Paul-au26/issues"
+  },
+  "homepage": "https://github.com/attainu/Nileshwar-Paul-au26#readme"
+}
