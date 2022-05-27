@@ -2,8 +2,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const SECRET = process.env.SECRET
 function verifyLogin(req, res, next) {
-    const token = req.headers["access-token"]
+    const token = req.headers["accesstoken"]
     console.log(req.headers)
+    console.log(req.body)
     if (!token) {
       return res.status(403).json({
         message: "Token not present"
