@@ -1,0 +1,27 @@
+{
+  "name": "m7_test_be",
+  "version": "1.0.0",
+  "description": "create REST API for Expense Tracker App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nileshwar-Paul-au26/webpages.git#dev"
+  },
+  "author": "nIlEsHwAr pAuL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nileshwar-Paul-au26/webpages/issues"
+  },
+  "homepage": "https://github.com/Nileshwar-Paul-au26/webpages/tree/dev#readme",
+  "dependencies": {
+    "D": "^1.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
