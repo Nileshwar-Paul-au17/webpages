@@ -54,7 +54,6 @@ const signup = async (req, res) => {
 
         res.status(501).send(err.message);
     }
-
 }
 
 const login = async (req, res) => {
