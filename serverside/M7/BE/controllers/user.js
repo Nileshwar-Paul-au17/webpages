@@ -1,16 +1,18 @@
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const base64 = require("js-base64");
-const cloudinary = require("cloudinary");
+const cloudinary = require("cloudinary").v2;
+const dotenv = require('dotenv');
+dotenv.config();
 const jwt = require("jsonwebtoken");
 const userModel = require('../model/userModel.js');
 cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.api_key,
+    cloud_name:process.env.CLOUD_NAME,
+    api_key:process.env.api_key,
     api_secret: process.env.api_secret,
-    secure: true,
 });
 const uploader = multer({ storage: multer.memoryStorage() });
+
 const signup = async (req, res) => {
     console.log(req.body)
     // console.log(req.file.buffer)
@@ -20,26 +22,23 @@ const signup = async (req, res) => {
         let name = req.body.name;
         const exist = await userModel.findOne({ email: email });
         if (exist) {
-
             return res.status(401).json({ message: 'User already exist' });
         }
         let picture = null
         //converting the file data to base64 string format require by the cloudinary
-        //let stringdata = base64.encode(req.file.buffer);
-
-        // cloudinary.v2.uploader.upload(
-        //     `data:${req.file.mimetype};base64,${stringdata}`,
-        //     function (err, result) {
-        //         if (err) {
-        //             console.log(err)
-        //             res.send('error: ' + err.message)
-        //         }
-        //         imgurl = result.secure_url
-        //         console.log(result)
-
-        //     }
-        // );
-
+        let stringdata = base64.encode(req.file.buffer);
+        cloudinary.uploader.upload(
+            `data:${req.file.mimetype};base64,${stringdata}`,
+            function (err, result) {
+                console.log("inside cloudinry")
+                if (err) {
+                    console.log(err)
+                    res.send('error: ' + err.message)
+                }
+                picture = result.secure_url
+                //console.log(result)
+            }
+        );
         const salt = bcrypt.genSaltSync(4);
         password = bcrypt.hashSync(password, salt);
         //console.log(password)
@@ -51,7 +50,7 @@ const signup = async (req, res) => {
         }
 
     } catch (err) {
-
+        console.log(err)
         res.status(501).send(err.message);
     }
 }
