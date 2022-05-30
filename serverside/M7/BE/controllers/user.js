@@ -14,7 +14,7 @@ cloudinary.config({
 const uploader = multer({ storage: multer.memoryStorage() });
 
 const signup = async (req, res) => {
-    console.log(req.body)
+        //console.log(req.body)
     // console.log(req.file.buffer)
     try {
         let email = req.body.email;
@@ -24,31 +24,30 @@ const signup = async (req, res) => {
         if (exist) {
             return res.status(401).json({ message: 'User already exist' });
         }
-        let picture = null
         //converting the file data to base64 string format require by the cloudinary
         let stringdata = base64.encode(req.file.buffer);
         cloudinary.uploader.upload(
             `data:${req.file.mimetype};base64,${stringdata}`,
-            function (err, result) {
-                console.log("inside cloudinry")
+            async function (err, result) {
                 if (err) {
                     console.log(err)
                     res.send('error: ' + err.message)
                 }
-                picture = result.secure_url
-                //console.log(result)
+                let picture = `${result.secure_url}`;
+                const salt = bcrypt.genSaltSync(4);
+                password = bcrypt.hashSync(password, salt);
+                //console.log(password)
+                let response = await userModel.create({ name, email, password, picture });
+                //console.log(response.picture.toString())
+                if (response) {
+                    res.status(200).send('user signup successful');
+                } else {
+                    throw new Error
+                }        
             }
         );
-        const salt = bcrypt.genSaltSync(4);
-        password = bcrypt.hashSync(password, salt);
-        //console.log(password)
-        let response = await userModel.create({ name, email, password, picture });
-        if (response) {
-            res.status(200).send('user signup successful');
-        } else {
-            throw new Error
-        }
-
+    
+       
     } catch (err) {
         console.log(err)
         res.status(501).send(err.message);
