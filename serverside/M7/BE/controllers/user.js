@@ -58,7 +58,10 @@ const login = async (req, res) => {
     try {
         let matchUser = await userModel.findOne({ email: req.body.email });
         //console.log(matchUser)
-        let matchPassword = bcrypt.compareSync(req.body.password, matchUser.password); // true
+        let matchPassword=null
+        if(matchUser) {
+            matchPassword = bcrypt.compareSync(req.body.password, matchUser.password);
+        }
         if (matchUser && matchPassword) {
             let email = matchUser.email;
             let SECRET = process.env.SECRET
@@ -67,12 +70,14 @@ const login = async (req, res) => {
             const token = jwt.sign(payload, SECRET, { expiresIn: '1D', algorithm: 'HS384' })
             return res.json({
                 accessToken: token,
+                email:matchUser.email,     
+                name:matchUser.name,     
                 message: "Successfult Logged IN"
             })
-                .status(200)
+            .status(200)
         } else {
             res.status(404).json({
-                message: 'User not found'
+                message: 'Wrong Credentials'
             })
         }
     } catch (err) {
