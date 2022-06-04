@@ -4,14 +4,16 @@ const app = express()
 
 const PORT = 3030
 
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:false}))
 
 
 app.get('/survey',(req,res) => {
     res.sendFile(__dirname+'/form-sendingdata-to-nodeserver.html')
    
    // res.sendFile('C:/Users/intel/Desktop/Newfolder/webpages/serverside/formInNode/form-sendingdata-to-nodeserver.html')
-  // console.log(__dirname)
+   console.log(__dirname)
+   console.log("hi")
+   console.log(req.body)
 })
 
 app.get('/survey/submit',(req,res) => {  //If u are using method=GET in form this function executed
@@ -30,6 +32,7 @@ app.post('/survey/submit',(req,res) => { //If u are using method=POST in form th
     console.log("submitted by POST method")
     res.send(req.body)
     //res.send(str)
+    console.log(req.body)
 
 })
 
